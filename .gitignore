@@ -1,0 +1,107 @@
+
+# 1. Dependencias de Node.js
+node_modules/
+**/node_modules/
+.npm/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 2. Variables de entorno y credenciales
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+**/.soa-internal-key
+**/connector-secrets.txt
+**/secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa
+id_ed25519
+
+# 3. Datos persistentes del MVP
+/backend/auth/usuarios.json
+/backend/auth/carritos.json
+/backend/catalogo/productos.json
+/backend/inventario/inventario.json
+/backend/pedidos/pedidos.json
+/backend/seguimiento/seguimiento.json
+
+# 4. Respaldos, recuperaciones y evidencias locales
+/backend/respaldos/
+/backend/evidencias/
+/backend/recuperacion-prueba/
+/backend/backup/
+*.bak
+*.backup
+
+# 5. Archivos temporales y registros
+*.tmp
+*.temp
+*.log
+*.old
+*.pid
+*.swp
+*.swo
+*.lock.tmp
+*.json.tmp
+
+# 6. Instalación interna de Camunda
+/camunda/instalacion/.connectors/
+/camunda/instalacion/.console/
+/camunda/instalacion/.identity/
+/camunda/instalacion/.optimize/
+/camunda/instalacion/.orchestration/
+/camunda/instalacion/.web-modeler/
+/camunda/instalacion/tests/
+/camunda/instalacion/tests-lightweight/
+
+# 7. Configuraciones adicionales de Camunda
+/camunda/instalacion/docker-compose-full.yaml
+/camunda/instalacion/docker-compose-web-modeler.yaml
+
+# 8. Datos locales de contenedores
+/camunda/instalacion/data/
+/camunda/instalacion/volumes/
+*.db
+*.sqlite
+*.sqlite3
+
+# 9. Entornos y archivos del editor
+.vscode/
+.idea/
+*.code-workspace
+
+# 10. Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# 11. Archivos comprimidos y entregas exportadas
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# 12. Informes exportados y documentos privados
+*.pdf
+*.docx
+*.doc
+*.xlsx
+
+# 13. Cachés y resultados de herramientas
+coverage/
+.nyc_output/
+.cache/
+dist/
+build/
+playwright-report/
+test-results/

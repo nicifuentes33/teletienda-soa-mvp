@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teletienda SOA | Tienda virtual</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="api.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div id="notificacion" class="notificacion" role="status"></div>
+
+    <!-- 1. Pantalla de acceso -->
+    <main id="pantallaAcceso" class="acceso">
+
+        <section class="acceso-presentacion">
+            <div class="marca marca-grande">
+                <span class="marca-icono">T.</span>
+                <span>TELETIENDA <strong>SOA</strong></span>
+            </div>
+
+            <div class="hero-copy">
+                <span class="etiqueta">
+                    TU TIENDA EN UN SOLO LUGAR
+                </span>
+
+                <h1>
+                    Todo lo que buscas,
+                    <em>más cerca de ti.</em>
+                </h1>
+
+                <p>
+                    Explora, elige y compra con confianza.
+                    Una experiencia sencilla, de principio a fin.
+                </p>
+            </div>
+
+            <div class="hero-pie">
+                <span>✦ Compra fácil</span>
+                <span>✦ Seguimiento real</span>
+                <span>✦ Tienda segura</span>
+            </div>
+
+            <div class="circulo circulo-uno"></div>
+            <div class="circulo circulo-dos"></div>
+        </section>
+
+        <section class="acceso-formulario">
+            <div class="tarjeta-acceso">
+
+                <div class="avatar">↗</div>
+
+                <div id="encabezadoAcceso">
+                    <span class="etiqueta etiqueta-oscura">
+                        BIENVENIDO A TELETIENDA
+                    </span>
+
+                    <h2 id="tituloAcceso">
+                        Iniciar sesión
+                    </h2>
+
+                    <p id="subtituloAcceso">
+                        Ingresa tus datos para continuar con tus compras.
+                    </p>
+                </div>
+
+                <form id="formAcceso" autocomplete="on">
+                    <label for="correo">
+                        Correo electrónico
+                    </label>
+
+                    <input
+                        id="correo"
+                        type="email"
+                        placeholder="correo@ejemplo.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="clave">
+                        Contraseña
+                    </label>
+
+                    <div class="campo-clave">
+                        <input
+                            id="clave"
+                            type="password"
+                            placeholder="Ingresa tu contraseña"
+                            autocomplete="current-password"
+                            minlength="4"
+                            required
+                        >
+
+                        <button
+                            id="mostrarClave"
+                            type="button"
+                            class="ver-clave"
+                        >
+                            Ver
+                        </button>
+                    </div>
+
+                    <button
+                        id="botonAcceso"
+                        class="boton boton-primario boton-ancho"
+                        type="submit"
+                    >
+                        Ingresar →
+                    </button>
+                </form>
+
+                <p class="texto-cambio">
+                    <span id="preguntaAcceso">
+                        ¿Aún no tienes una cuenta?
+                    </span>
+
+                    <button
+                        id="alternarAcceso"
+                        class="enlace-boton"
+                        type="button"
+                    >
+                        Crear cuenta
+                    </button>
+                </p>
+
+                <p class="nota-seguridad">
+                    🔒 Tu sesión está protegida
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 2. Pantalla principal -->
+    <div id="pantallaTienda" class="tienda oculto">
+
+        <header class="barra-superior">
+            <div class="cabecera-contenido">
+
+                <a
+                    href="#"
+                    id="enlaceInicio"
+                    class="marca marca-cabecera"
+                >
+                    <span class="marca-icono">T.</span>
+                    <span>TELETIENDA <strong>SOA</strong></span>
+                </a>
+
+                <nav class="navegacion">
+                    <button id="navInicio" class="nav-activo">
+                        Inicio
+                    </button>
+
+                    <button id="navPedidos">
+                        Mis pedidos
+                    </button>
+
+                    <button id="navCrear" class="oculto">
+                        + Crear producto
+                    </button>
+                </nav>
+
+                <div class="cabecera-derecha">
+                    <span id="saludoUsuario" class="saludo"></span>
+                    <span id="rolUsuario" class="rol"></span>
+
+                    <button id="btnSalir" class="boton-salir">
+                        Salir ↗
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="contenedor">
+
+            <!-- 3. Encabezado -->
+            <section class="banner-bienvenida">
+                <div>
+                    <span class="etiqueta">
+                        DESCUBRE LO QUE TENEMOS PARA TI
+                    </span>
+
+                    <h1>
+                        Encuentra eso que
+                        <em>te encanta.</em>
+                    </h1>
+
+                    <p>
+                        Productos increíbles, compras sin complicaciones.
+                    </p>
+                </div>
+
+                <div class="banner-decoracion">✳</div>
+            </section>
+
+            <div class="contenido-tienda">
+
+                <!-- 4. Catálogo -->
+                <section class="zona-productos">
+
+                    <div class="buscador-contenedor">
+                        <span class="icono-buscar">⌕</span>
+
+                        <input
+                            id="buscar"
+                            type="search"
+                            placeholder="Buscar por nombre o descripción..."
+                        >
+
+                        <button
+                            id="btnTodos"
+                            class="boton-todos"
+                        >
+                            Mostrar todos ↓
+                        </button>
+                    </div>
+
+                    <div class="titulo-seccion">
+                        <div>
+                            <span
+                                id="etiquetaLista"
+                                class="eyebrow"
+                            >
+                                NUESTRAS NOVEDADES
+                            </span>
+
+                            <h2 id="tituloLista">
+                                Recién llegados ✦
+                            </h2>
+
+                            <p id="subtituloLista">
+                                Los últimos 4 productos agregados
+                                a nuestra tienda
+                            </p>
+                        </div>
+
+                        <button
+                            id="btnActualizar"
+                            class="refrescar"
+                        >
+                            ↻ Actualizar
+                        </button>
+                    </div>
+
+                    <div
+                        id="cuadriculaProductos"
+                        class="cuadricula-productos"
+                    ></div>
+
+                    <div
+                        id="estadoProductos"
+                        class="estado-vacio oculto"
+                    ></div>
+
+                    <!-- 5. Pedidos -->
+                    <div id="vistaPedidos" class="oculto">
+                        <div class="titulo-seccion">
+                            <div>
+                                <span class="eyebrow">
+                                    TU ACTIVIDAD
+                                </span>
+
+                                <h2 id="tituloPedidos">
+                                    Mis pedidos
+                                </h2>
+
+                                <p>
+                                    Revisa el estado de tus compras.
+                                </p>
+                            </div>
+
+                            <button
+                                id="btnActualizarPedidos"
+                                class="refrescar"
+                            >
+                                ↻ Actualizar
+                            </button>
+                        </div>
+
+                        <div
+                            id="listaPedidos"
+                            class="lista-pedidos"
+                        ></div>
+                    </div>
+                </section>
+
+                <!-- 6. Carrito lateral -->
+                <aside
+                    id="panelCarrito"
+                    class="panel-carrito"
+                >
+                    <div class="carrito-encabezado">
+                        <div>
+                            <span class="eyebrow">
+                                TU SELECCIÓN
+                            </span>
+
+                            <h2>
+                                Mi carrito
+                                <span
+                                    id="contadorCarrito"
+                                    class="contador-carrito"
+                                >0</span>
+                            </h2>
+                        </div>
+
+                        <span class="icono-bolsa">▤</span>
+                    </div>
+
+                    <div
+                        id="itemsCarrito"
+                        class="items-carrito"
+                    ></div>
+
+                    <div class="carrito-pie">
+                        <div class="total-linea">
+                            <span>Total estimado</span>
+
+                            <strong id="totalCarrito">
+                                $ 0
+                            </strong>
+                        </div>
+
+                        <p class="texto-ayuda">
+                            El inventario se valida al registrar el pedido.
+                        </p>
+
+                        <button
+                            id="btnComprar"
+                            class="boton boton-primario boton-ancho"
+                        >
+                            Registrar pedido →
+                        </button>
+
+                        <button
+                            id="btnVaciar"
+                            class="boton-texto"
+                        >
+                            Vaciar carrito
+                        </button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <footer class="pie-pagina">
+            TELETIENDA SOA · Tu tienda, a tu manera · MVP académico
+        </footer>
+    </div>
+
+    <!-- 7. Crear o editar producto -->
+    <dialog
+        id="dialogProducto"
+        class="dialogo"
+    >
+        <div class="dialogo-cabecera">
+            <div>
+                <span class="eyebrow">
+                    ADMINISTRACIÓN
+                </span>
+
+                <h2 id="tituloDialogo">
+                    Crear producto
+                </h2>
+            </div>
+
+            <button
+                id="cerrarDialogo"
+                class="cerrar-dialogo"
+                type="button"
+            >
+                ×
+            </button>
+        </div>
+
+        <form id="formProducto">
+
+            <input
+                type="hidden"
+                id="productoId"
+            >
+
+            <label for="nombreProducto">
+                Nombre del producto
+            </label>
+
+            <input
+                id="nombreProducto"
+                required
+                maxlength="120"
+                placeholder="Ej. Nintendo Switch 2"
+            >
+
+            <label for="descripcionProducto">
+                Descripción
+            </label>
+
+            <textarea
+                id="descripcionProducto"
+                required
+                rows="3"
+                placeholder="Describe el producto"
+            ></textarea>
+
+            <label for="precioProducto">
+                Precio en pesos colombianos
+            </label>
+
+            <input
+                id="precioProducto"
+                type="number"
+                min="1"
+                step="1"
+                required
+            >
+
+            <div id="grupoInventario">
+                <label for="cantidadProducto">
+                    Inventario inicial
+                </label>
+
+                <input
+                    id="cantidadProducto"
+                    type="number"
+                    min="0"
+                    step="1"
+                    required
+                >
+            </div>
+
+            <div class="dialogo-acciones">
+                <button
+                    id="cancelarProducto"
+                    class="boton boton-suave"
+                    type="button"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    id="guardarProducto"
+                    class="boton boton-primario"
+                    type="submit"
+                >
+                    Guardar producto
+                </button>
+            </div>
+        </form>
+    </dialog>
+</body>
+</html>
